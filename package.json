@@ -1,5 +1,5 @@
 {
-  "name": "3DGlo",
+  "name": "3dglo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^5.69.1",
-    "webpack-cli": "^4.9.2"
+    "webpack": "^5.58.1",
+    "webpack-cli": "^4.9.0"
   }
 }

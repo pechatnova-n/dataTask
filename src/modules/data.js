@@ -7,6 +7,7 @@ const dataModule = () => {
     const text4 = document.querySelector('.text4');
 
     const getData = () => {
+        let timesOfDay;
         let data = new Date();
         let dayOfTheWeeck = data.toLocaleString('ru-RU', { weekday: 'long'});
         let time = data.toLocaleString('en-EN').slice(-11);
@@ -30,12 +31,18 @@ const dataModule = () => {
         time = arrTime.join(":")
         dayOfTheWeeck = dayOfTheWeeck[0].toUpperCase() + dayOfTheWeeck.slice(1);
 
-        let timesOfDay = 'eee';
 
-
-
-
-
+        const getTimesOfDay = (hours) => {
+            if(hours >= '00' && hours < '06' ) {
+                timesOfDay = 'Доброй ночи';
+            } else if(hours >= '06' && hours < '12' ) {
+                timesOfDay = 'Доброе утро';
+            } else if(hours > '12' && hours < '18' ) {
+                timesOfDay = 'Доброй день';
+            } else if(hours >= '18' && hours <= '23' ) {
+                timesOfDay = 'Доброй вечер';
+            }
+        }
 
         const showData = () => {
             text1.textContent = timesOfDay;
@@ -44,6 +51,7 @@ const dataModule = () => {
             text4.textContent = `До нового года осталось ${days} дней`
         }
 
+        getTimesOfDay(time.slice(0, 2))
         showData();
     }
 

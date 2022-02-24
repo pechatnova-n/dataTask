@@ -1,10 +1,8 @@
 'use strict';
 
 const dataModule = () => {
-    const text1 = document.querySelector('.text1');
-    const text2 = document.querySelector('.text2');
-    const text3 = document.querySelector('.text3');
-    const text4 = document.querySelector('.text4');
+    let elem = document.createElement('p');
+    document.body.append(elem);
 
     const getData = () => {
         let timesOfDay;
@@ -31,7 +29,6 @@ const dataModule = () => {
         time = arrTime.join(":")
         dayOfTheWeeck = dayOfTheWeeck[0].toUpperCase() + dayOfTheWeeck.slice(1);
 
-
         const getTimesOfDay = (hours) => {
             if(hours >= '00' && hours < '06' ) {
                 timesOfDay = 'Доброй ночи';
@@ -45,14 +42,13 @@ const dataModule = () => {
         }
 
         const showData = () => {
-            text1.textContent = timesOfDay;
-            text2.textContent = `Сегодня: ${dayOfTheWeeck}`
-            text3.textContent = `Текущее время: ${time} ${signTime}`
-            text4.textContent = `До нового года осталось ${days} дней`
+            elem.innerHTML = `${timesOfDay} <br> Сегодня: ${dayOfTheWeeck} <br> Текущее время: ${time} ${signTime}<br> До нового года осталось ${days} дней`;
         }
 
         getTimesOfDay(time.slice(0, 2))
         showData();
+
+
     }
 
     setInterval(getData, 1000);
